@@ -17,15 +17,16 @@ public class Scramble {
 		Scanner scanner = new Scanner(System.in);
 		System.out.print("Enter the String that you want to be scrambled: ");
 		
-		//This string has the entire string that was entered
+		//scrambleString has the entire string that was entered
 		String scrambleString = scanner.nextLine();
 		
 		//This scanner is used to break down the string into tokens, or words in this case
 		Scanner tokenizer = new Scanner(scrambleString);
 		String finalString = "";
 		
-		//String builders are used to add to as the new scrambled string is constructed.
+		//String builders are used to append each new token as the new scrambled string is constructed.
 		StringBuilder stringbuilder = new StringBuilder();
+		
 		//This StringBuilder is used to ensure that the random letters chosen are not the same letter.
 		//Future problem to be dealth with - how to deal with words longer than 13 letters?
 		StringBuilder usedbuilder = new StringBuilder();
@@ -56,7 +57,7 @@ public class Scramble {
 					//create a random integer that has a valid index for middle
 					randInt = rand.nextInt(middle.length());
 					
-					//makes sure randInt hasn't already been added
+					//makes sure that particular index hasn't already been added
 					while((usedbuilder.indexOf((String.valueOf(randInt))))>=0){
 						
 						randInt = rand.nextInt(middle.length());
