@@ -26,7 +26,6 @@ public class Scramble {
 		
 		//String builders are used to append each new token as the new scrambled string is constructed.
 		StringBuilder stringbuilder = new StringBuilder();
-		
 		//This StringBuilder is used to ensure that the random letters chosen are not the same letter.
 		//Future problem to be dealth with - how to deal with words longer than 13 letters?
 		StringBuilder usedbuilder = new StringBuilder();
@@ -54,22 +53,23 @@ public class Scramble {
 				//add as many characters to the string builder that exist in the string "middle"
 				for(int i = 0; i < middle.length(); i++){
 					
-					//create a random integer that has a valid index for middle
-					randInt = rand.nextInt(middle.length());
 					
-					//makes sure that particular index hasn't already been added
-					while((usedbuilder.indexOf((String.valueOf(randInt))))>=0){
+					//create a random integer based on ASCII CHAR TABLE
+					randInt = (rand.nextInt(middle.length()) + 33); //ASCII code 33 and up allow for characters that are
+																	//acceptable such as punctuation, A-Za-z0-9
+					
+					//makes sure a particular index hasn't already been added
+					while((usedbuilder.indexOf((String.valueOf((char)randInt))))>=0){
 						
-						randInt = rand.nextInt(middle.length());
-						
-						
+						randInt = (rand.nextInt(middle.length()) + 33);
+						//System.out.println((char)randInt);
+
 					}
 					
-					
-					usedbuilder.append(randInt);
+					usedbuilder.append(String.valueOf((char)randInt));
 					String temp = "";
-					temp = middle.substring(randInt,randInt+1);	//add one of the letters
-					stringbuilder.append(temp);
+					temp = middle.substring((randInt-33),((randInt+1)-33));	//add one of the letters - 33 is subtracted so that the number
+					stringbuilder.append(temp);								//is a valid index in the word.
 					
 					
 				}
