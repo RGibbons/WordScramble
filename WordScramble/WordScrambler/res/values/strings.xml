@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Word Scrambler</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="instruction">Enter the phrase you would like scrambled below:</string>
+    <string name="scrambleMethod">scramble</string>
+
+</resources>
