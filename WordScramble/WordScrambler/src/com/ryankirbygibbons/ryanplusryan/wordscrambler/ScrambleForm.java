@@ -38,7 +38,8 @@ public class ScrambleForm extends Activity {
 		//String builders are used to append each new token as the new scrambled string is constructed.
 		StringBuilder stringbuilder = new StringBuilder();
 		//This StringBuilder is used to ensure that the random letters chosen are not the same letter.
-		//Future problem to be dealth with - how to deal with words longer than 13 letters?
+		//Future problem to be dealt with - how to deal with words longer than 13 letters?
+		//TODO: THE ANSWER IS TO USE AN ARRAY INSTEAD OF A STRING BUILDER TO STORE THE INDEXES
 		StringBuilder usedbuilder = new StringBuilder();
 		
 		
@@ -105,8 +106,7 @@ public class ScrambleForm extends Activity {
 		}
 		
 		
-		//FINALLY, build the string and then output it to the user. Once again, this will be different slightly
-		//in the actual android app.
+		//FINALLY, build the string and put it back in the textbox.
 		finalString = stringbuilder.toString();
 		scrambleField.setText(finalString);
 		
